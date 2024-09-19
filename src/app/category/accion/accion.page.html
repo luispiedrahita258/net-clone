@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pelis Wok - Acción</ion-title>
+    <ion-buttons slot="start">
+      <!-- Agregar el botón de Inicio -->
+      <ion-button routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+        Inicio
+      </ion-button>
+      <ion-button routerLink="/category/accion">Acción</ion-button>
+      <ion-button routerLink="/category/comedia">Comedia</ion-button>
+      <ion-button routerLink="/category/drama">Drama</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Cerrar Sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Banner -->
+  <div class="banner">
+    <img src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/2d223dd0-3cc6-4c25-a7d5-691635a88acf._CR0%2C0%2C1500%2C750_SX3000_.jpg" alt="Banner Acción" class="banner-image" />
+    <div class="banner-content">
+      <h1>Películas de Acción</h1>
+      <p>Explora las mejores películas de acción aquí en Pelis Wok.</p>
+    </div>
+  </div>
+
+  <!-- Grid de Películas de Acción -->
+  <div class="grid-wrapper">
+    <div class="movie-grid">
+      <div class="movie-item" *ngFor="let movie of actionMovies">
+        <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image" />
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.synopsis }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,50 @@
+/* Centrar el contenido dentro de un contenedor */
+.container {
+  max-width: 900px; /* Limitar el ancho máximo */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 20px;
+}
+
+.movie-detail-image {
+  width: 100%; /* Para que la imagen tome el ancho completo del contenedor */
+  height: auto; /* Mantener proporción */
+  border-radius: 10px; /* Opcional: hacer las esquinas redondeadas */
+}
+
+.movie-info {
+  text-align: center; /* Centrar el texto */
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+ion-back-button {
+  --color: #e50914; /* Color del botón */
+  --background: none;
+}
+
+ion-toolbar {
+  background-color: #141414;
+}
+
+ion-title {
+  color: white;
+}
+
+
+ion-button {
+  display: flex;
+  align-items: center;
+}
+
+ion-icon {
+  margin-right: 5px;
+}

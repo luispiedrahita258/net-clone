@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Añadir Película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container">
+    <form (submit)="addMovie()">
+      <div class="form-header">
+        <ion-icon name="film-outline" class="form-icon"></ion-icon>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="movie.title" name="title" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Categoría</ion-label>
+        <ion-input [(ngModel)]="movie.category" name="category" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">URL de la imagen</ion-label>
+        <ion-input [(ngModel)]="movie.imageUrl" name="imageUrl" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Sinopsis</ion-label>
+        <ion-textarea [(ngModel)]="movie.synopsis" name="synopsis" required></ion-textarea>
+      </ion-item>
+
+      <ion-button color="primary" expand="block" type="submit">Añadir Película</ion-button>
+      <ion-button color="secondary" expand="block" (click)="goBack()">Cancelar</ion-button>
+    </form>
+  </div>
+</ion-content>

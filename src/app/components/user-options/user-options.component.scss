@@ -1,0 +1,18 @@
+ion-list {
+  padding: 0;
+  margin: 0;
+}
+
+ion-item {
+  --min-height: 40px;
+  font-size: 16px;
+  --border-color: transparent;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+.user-icon:hover {
+  opacity: 0.7; /* O un cambio de color, para que se note que es clickeable */
+}

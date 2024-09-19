@@ -1,20 +1,112 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Pelis Wok</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/category/accion">Acción</ion-button>
+      <ion-button routerLink="/category/comedia">Comedia</ion-button>
+      <ion-button routerLink="/category/drama">Drama</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <!-- Solo mostrar el botón de añadir película si el usuario es admin -->
+      <ion-button *ngIf="isAdmin" routerLink="/add-movie">Añadir Nueva Película</ion-button>
+      <ion-button (click)="presentUserOptions($event)">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+   <!-- Campo de búsqueda -->
+   <ion-searchbar placeholder="Buscar películas..." (ionInput)="filterMovies($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="banner">
+    <img src="https://i.ytimg.com/vi/N7XvA9gOCxQ/maxresdefault.jpg" alt="Banner de Pelis Wok" class="banner-image" />
+    <div class="banner-content">
+      <h1>Explora Nuevas Películas y Series</h1>
+      <p>Descubre lo último en entretenimiento justo aquí en Pelis Wok.</p>
+    </div>
+  </div>
+
+  <!-- Carrusel para la categoría de Acción -->
+  <h2 class="category-title">Acción</h2>
+  <h3>Tu próxima historia</h3>
+  <div class="carousel-wrapper">
+    <button class="arrow-button left" (click)="prevSlide('accion')">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <div class="carousel-container">
+      <div class="carousel-content" id="accionCarousel">
+        <div class="movie-item" *ngFor="let movie of actionMovies">
+          <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image" />
+          <h3>{{ movie.title }}</h3>
+
+          <!-- Botón de favorito -->
+          <ion-button fill="clear" (click)="toggleFavorite(movie.id)">
+            <ion-icon [name]="isFavorite(movie.id) ? 'heart' : 'heart-outline'" color="danger"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow-button right" (click)="nextSlide('accion')">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Carrusel para la categoría de Comedia -->
+  <h2 class="category-title">Comedia</h2>
+  <h3>Tu próxima historia</h3>
+  <div class="carousel-wrapper">
+    <button class="arrow-button left" (click)="prevSlide('comedia')">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <div class="carousel-container">
+      <div class="carousel-content" id="comediaCarousel">
+        <div class="movie-item" *ngFor="let movie of comedyMovies">
+          <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image" />
+          <h3>{{ movie.title }}</h3>
+
+          <!-- Botón de favorito -->
+          <ion-button fill="clear" (click)="toggleFavorite(movie.id)">
+            <ion-icon [name]="isFavorite(movie.id) ? 'heart' : 'heart-outline'" color="danger"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow-button right" (click)="nextSlide('comedia')">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Carrusel para la categoría de Drama -->
+  <h2 class="category-title">Drama</h2>
+  <h3>Tu próxima historia</h3>
+  <div class="carousel-wrapper">
+    <button class="arrow-button left" (click)="prevSlide('drama')">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <div class="carousel-container">
+      <div class="carousel-content" id="dramaCarousel">
+        <div class="movie-item" *ngFor="let movie of dramaMovies">
+          <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-image" />
+          <h3>{{ movie.title }}</h3>
+
+          <!-- Botón de favorito -->
+          <ion-button fill="clear" (click)="toggleFavorite(movie.id)">
+            <ion-icon [name]="isFavorite(movie.id) ? 'heart' : 'heart-outline'" color="danger"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow-button right" (click)="nextSlide('drama')">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
   </div>
 </ion-content>

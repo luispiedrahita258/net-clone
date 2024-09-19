@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="login-container">
+    <!-- Imagen logo -->
+    <img class="logo-image" src="../../assets/img/login/412785.png" alt="Logo">
+
+    <!-- Título del formulario -->
+    <h2 class="form-title">Bienvenido a Pelis Wok</h2>
+
+    <h2 class="form-title">Iniciar Sesión</h2>
+
+    <form (submit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
+
+      <!-- Mensaje de error -->
+      <ion-text color="danger" *ngIf="errorMessage">{{ errorMessage }}</ion-text>
+
+      <ion-button expand="block" type="submit">Iniciar Sesión</ion-button>
+      <ion-button expand="block" (click)="goToSignup()">Registrarse</ion-button>
+
+      <div class="icon-container">
+        <ion-button class="google" (click)="onLoginWithGoogle()">
+          <ion-icon name="logo-google" slot="icon-only"></ion-icon>
+        </ion-button>
+
+        <ion-button class="facebook" (click)="onLoginWithFacebook()">
+          <ion-icon name="logo-facebook" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

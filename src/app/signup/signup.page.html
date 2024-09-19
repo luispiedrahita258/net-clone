@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="register-container">
+    <form (submit)="onSignup()">
+      <!-- Imagen y título en el formulario de registro -->
+      <div class="image-container">
+        <img src="../../assets/img/login/412785.png" alt="Logo">
+      </div>
+      <ion-title>Registrarse</ion-title>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit">Registrar</ion-button>
+      <!-- Botón para volver al login -->
+      <ion-button expand="block" (click)="goToLogin()">Volver al Login</ion-button>
+    </form>
+  </div>
+</ion-content>

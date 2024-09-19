@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Volver al inicio
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ movie.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="container">
+    <img [src]="movie.imageUrl" alt="{{ movie.title }}" class="movie-detail-image" />
+
+    <div class="movie-info">
+      <h2>{{ movie.title }} ({{ movie.year }})</h2>
+      <p>{{ movie.category }}</p>
+      <p>{{ movie.synopsis }}</p>
+    </div>
+  </div>
+</ion-content>
