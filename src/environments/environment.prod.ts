@@ -1,7 +1,7 @@
 export const environment = {
-  production: true,
+  production: false,
   firebase: {
-    apiKey: "AIzaSyC177Aw4c7SQaMs9ne7vR-ANaP3mhhEoU",
+    apiKey: "AIzaSyC177Aw4c7sQOaMs9ne7vR-ANaP3mhhEoU",
     authDomain: "pelis-clone.firebaseapp.com",
     projectId: "pelis-clone",
     storageBucket: "pelis-clone.appspot.com",
